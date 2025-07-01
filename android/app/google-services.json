@@ -1,0 +1,50 @@
+{
+  "dependencies": {
+    "implementation": [
+      {
+        "project": "@react-native-async-storage_async-storage"
+      },
+      {
+        "maven": "com.facebook.react:react-native:+",
+        "comment": "From node_modules"
+      }
+    ]
+  },
+  "project_info": {
+    "project_number": "204956773748",
+    "project_id": "adera-melakia",
+    "storage_bucket": "adera-melakia.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204956773748:android:745dce7eed9ea65e1ed021",
+        "android_client_info": {
+          "package_name": "adera.express"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204956773748-ka4i5blr3lp6qfine87od7faf6uqkcpp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaDNI14mkCN3Cb49P3Oc9fKBZQLSGxbVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204956773748-ka4i5blr3lp6qfine87od7faf6uqkcpp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

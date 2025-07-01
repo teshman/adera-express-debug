@@ -1,0 +1,91 @@
+piggyback-pro/
+├── android/                   # Android native project files
+├── ios/                       # iOS native project files
+├── node_modules/              # Installed npm packages
+├── src/                       # Your application's source code
+│   ├── assets/                # Static assets like images, fonts
+│   │   ├── images/
+│   │   ├── fonts/
+│   │   └── icons/
+│   │
+│   ├── components/            # Reusable UI components (e.g., buttons, input fields, cards)
+│   │   ├── Button/
+│   │   │   └── index.tsx
+│   │   ├── CustomInput/
+│   │   │   └── index.tsx
+│   │   └── AppHeader/
+│   │       └── index.tsx
+│   │
+│   ├── screens/               # Top-level components representing distinct screens/pages
+│   │   ├── Auth/              # Authentication-related screens
+│   │   │   ├── LoginScreen.tsx
+│   │   │   ├── RegisterScreen.tsx
+│   │   │   ├── ForgotPasswordScreen.tsx
+│   │   │   └── EmailVerificationScreen.tsx
+│   │   │
+│   │   ├── Main/              # Core application screens (accessible after login)
+│   │   │   ├── HomeScreen.tsx
+│   │   │   ├── DashboardScreen.tsx
+│   │   │   ├── ProfileScreen.tsx
+│   │   │   └── SettingsScreen.tsx
+│   │   │
+│   │   ├── Shipments/         # Shipment-related screens
+│   │   │   ├── ShipmentRequestScreen.tsx # Screen to create a new shipment request
+│   │   │   ├── ShipmentDetailsScreen.tsx # View details of a specific shipment
+│   │   │   ├── BidderListScreen.tsx      # List of bidders for a shipment
+│   │   │   └── CreateShipmentScreen.tsx  # Dedicated screen for complex creation flow
+│   │   │
+│   │   └── Bids/                # Bid-related screens (e.g., viewing bids, placing bids)
+│   │       ├── MyBidsScreen.tsx
+│   │       └── PlaceBidScreen.tsx
+│   │
+│   ├── navigation/            # React Navigation setup
+│   │   ├── AuthNavigator.tsx  # Navigator for login, register, etc.
+│   │   ├── AppNavigator.tsx   # Navigator for authenticated routes
+│   │   └── index.tsx          # Root navigator (switches between Auth and App)
+│   │
+│   ├── services/              # Business logic, API calls to Cloud Functions
+│   │   ├── AuthService.ts     # Your primary authentication service (mostly done)
+│   │   ├── UserService.ts     # For user profile management, fetching user data (via CF)
+│   │   ├── ShipmentService.ts # For creating, retrieving, updating shipment requests (via CF)
+│   │   ├── BidService.ts      # For placing, accepting, rejecting bids (via CF)
+│   │   ├── NotificationService.ts # For managing in-app notifications
+│   │   └── PaymentService.ts  # For payment processing (via CF)
+│   │
+│   ├── hooks/                 # Custom React hooks for reusable logic (e.g., useAuth, useTheme)
+│   │   ├── useAuth.ts
+│   │   └── useShipments.ts
+│   │
+│   ├── utils/                 # Utility functions, constants, helpers
+│   │   ├── constants.ts
+│   │   ├── helpers.ts
+│   │   └── validators.ts
+│   │
+│   ├── models/                # TypeScript interfaces and types for data structures
+│   │   ├── User.ts            # Defines UserProfile, UserRole (similar to your PWA)
+│   │   ├── Shipment.ts        # Defines ShipmentRequest, ShipmentStatus etc.
+│   │   ├── Bid.ts             # Defines Bid structure
+│   │   └── index.ts           # Barrel file to export all models
+│   │
+│   └── environments/          # Environment-specific variables (e.g., API URLs)
+│       ├── environment.ts     # Development environment
+│       └── environment.prod.ts # Production environment
+│
+├── App.tsx                    # Main application entry point
+├── index.js                   # Entry file for React Native (usually auto-generated)
+├── package.json               # Project dependencies and scripts
+└── tsconfig.json              # TypeScript configuration
+
+Key Points:
+
+screens/ vs. components/: Screens are full pages, while components are smaller, reusable UI building blocks.
+
+navigation/: This is where you'll configure React Navigation to define how users move between different parts of your app.
+
+services/: This is where we strictly enforce your "no direct Firebase client-side access" rule, routing almost everything through HTTP calls to your Cloud Functions, with AuthService handling the core Firebase Authentication SDK integration.
+
+models/: Centralized place for your TypeScript interfaces, ensuring type safety across your client and (if shared) server code.
+
+environments/: Crucial for managing different API endpoints between development and production.
+
+This structure should provide a solid foundation for building out PiggyBack-pro. What would you like to tackle first within this structure?
